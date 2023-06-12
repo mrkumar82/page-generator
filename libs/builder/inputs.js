@@ -424,7 +424,6 @@ var ImageInput = $.extend({}, Input, {
 					processData: false,
 					contentType: false,
 					success: function (data) {
-						console.log("File uploaded at: ", data.mesaage);
 						
 						//if image is succesfully uploaded set image url
 						event.data.element.trigger('propertyChange', [data.mesaage, this]);

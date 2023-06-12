@@ -1894,6 +1894,7 @@ Vvveb.Builder = {
 		}).done(function (data) {
 			
 				if (callback) callback(data);
+				//window.reload()
 				Vvveb.Undo.reset();
 			$("#top-panel .save-btn").attr("disabled", "true");
 		}).fail(function (data) {
@@ -2132,16 +2133,29 @@ Vvveb.Gui = {
 			$.each($(this).serializeArray(), function() {
 				data[this.name] = this.value;
 			});			
-
+			console.log(data)
+			let tempTitle= data["title"]
+			console.log(tempTitle)
 			data['title']  = data['file'].replace('/', '').replace('.html', '');
 			var name = data['name'] = data['folder'].replace('/', '_') + "-" + data['title'];
+			console.log(name)
 			data['url']  = data['file'] = data['folder'] + "/" + data['file'];
-			
-			Vvveb.FileManager.addPage(data.name, data);
+			let temp={...data}
+			temp['url']  = temp['file']="project/"+temp["url"]
+			temp["folder"]="project"
+			temp["folderTitle"]="Project"
+			temp["title"]=data["folder"]+"/"+data["title"]
+			delete temp["startTemplateUrl"]
+			Vvveb.FileManager.addPage("project-"+temp.name, temp);
 			e.preventDefault();
 			
-			return Vvveb.Builder.saveAjax(data.file, data.startTemplateUrl, function (data) {
-					Vvveb.FileManager.loadPage(name);
+
+			return Vvveb.Builder.saveAjax(data.file, data.startTemplateUrl, function (result) {
+				
+				
+				console.log("data",data)
+				// name = data['name']="project-"+data["name"];
+					Vvveb.FileManager.loadPage("project-"+name);
 					Vvveb.FileManager.scrollBottom();
 					newPageModal.modal("hide");
 			}, this.action);
@@ -2999,6 +3013,7 @@ Vvveb.FileManager = {
 		$("> input[type=checkbox]", $(page).parents("[data-folder]")).prop("checked", true);
 
 		this.currentPage = name;
+		console.log(this.pages)
 		var url = this.pages[name]['url'];
 		$(".btn-preview-url").attr("href", url);
 		
