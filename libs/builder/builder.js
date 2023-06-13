@@ -1387,7 +1387,7 @@ Vvveb.Builder = {
 							*/
 						
 					} catch(err) {
-						console.log(err);
+					
 						return false;
 					}
 					
@@ -2133,12 +2133,12 @@ Vvveb.Gui = {
 			$.each($(this).serializeArray(), function() {
 				data[this.name] = this.value;
 			});			
-			console.log(data)
+		
 			let tempTitle= data["title"]
-			console.log(tempTitle)
+		
 			data['title']  = data['file'].replace('/', '').replace('.html', '');
 			var name = data['name'] = data['folder'].replace('/', '_') + "-" + data['title'];
-			console.log(name)
+		
 			data['url']  = data['file'] = data['folder'] + "/" + data['file'];
 			let temp={...data}
 			temp['url']  = temp['file']="project/"+temp["url"]
@@ -2153,7 +2153,7 @@ Vvveb.Gui = {
 			return Vvveb.Builder.saveAjax(data.file, data.startTemplateUrl, function (result) {
 				
 				
-				console.log("data",data)
+			
 				// name = data['name']="project-"+data["name"];
 					Vvveb.FileManager.loadPage("project-"+name);
 					Vvveb.FileManager.scrollBottom();
@@ -3013,7 +3013,7 @@ Vvveb.FileManager = {
 		$("> input[type=checkbox]", $(page).parents("[data-folder]")).prop("checked", true);
 
 		this.currentPage = name;
-		console.log(this.pages)
+	
 		var url = this.pages[name]['url'];
 		$(".btn-preview-url").attr("href", url);
 		

@@ -103,7 +103,7 @@ function sanitizeFileName(file, folder) {
     file = path.join(dirpath, '/', file.replace(/\?.*$/, '').replace(/\.{2,}/g, '').replace(/[^\/\\a-zA-Z0-9\-\._]/g, ''));
   
     // allow only .html extension
-  console.log(file)
+
     return file;
   }
 
@@ -125,7 +125,7 @@ const editor=async ()=>{
               
                
             ];
-            console.log(htmlFiles)
+       
 
             let files = '';
             htmlFiles.forEach(file => {
@@ -133,7 +133,7 @@ const editor=async ()=>{
                 
                 const pathInfo = path.parse(file);
                 let { name, dir: folder, base: filename } = pathInfo;
-                console.log(pathInfo)
+          
                 folder = folder.replace(/\/.+?$/, '');
                 const subfolder = folder.replace(/^.+?\//, '');
                 
@@ -141,20 +141,20 @@ const editor=async ()=>{
                   filename = subfolder;
                 }
                 
-                const url = path.join(folder, pathInfo.base);
-               let temp=folder.split("\\");
+                const url = path.join(pathInfo.dir, pathInfo.base);
+               let temp=path.basename(pathInfo.dir)
+             
+                const title = temp.charAt(0).toUpperCase() + temp.slice(1);
            
-                const title = temp[temp.length-1].charAt(0).toUpperCase() + temp[temp.length-1].slice(1);
-              
-                let filetemp= path.join((path.dirname(file)+'\\'),path.basename(file));
-                files += `{name: '${title}', file: '${filetemp}', title: '${title}', url: '${url}', folder: '${url.split("\\")[0]}'},`;
+                let filetemp= url;
+                files += `{name: '${title}', file: '${filetemp}', title: '${title}', url: '${url}', folder: '${path.dirname(pathInfo.dir)}'},`;
               });
 
               files=files.replaceAll("\\", "/")
               
               // Replace the 'pages' placeholder in the HTML with the dynamic file list
               const modifiedHtml = html.replace('(pages);', `([${files}]);`);
-            //  console.log(modifiedHtml)
+          
              let res=fs.writeFileSync('editor.html',modifiedHtml)
                 return res;
         }
