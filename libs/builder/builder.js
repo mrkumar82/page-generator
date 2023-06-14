@@ -2137,16 +2137,22 @@ Vvveb.Gui = {
 			let tempTitle= data["title"]
 		
 			data['title']  = data['file'].replace('/', '').replace('.html', '');
+			let tempfile= data["file"]
 			var name = data['name'] = data['folder'].replace('/', '_') + "-" + data['title'];
-		
+			console.log("name", name)
+			console.log("file",data["file"])
 			data['url']  = data['file'] = data['folder'] + "/" + data['file'];
 			let temp={...data}
-			temp['url']  = temp['file']="project/"+temp["url"]
-			temp["folder"]="project"
-			temp["folderTitle"]="Project"
-			temp["title"]=data["folder"]+"/"+data["title"]
+			temp['url']   ="project/"+temp["url"]
+			temp["folder"]= data["folder"]
+			temp["folderTitle"]=data["folder"].charAt(0).toUpperCase() + data["folder"].slice(1)
+			//temp["file"]=tempfile
+			temp["title"]=tempfile
+			console.log("file",temp["file"])
+			
+			console.log(temp)
 			delete temp["startTemplateUrl"]
-			Vvveb.FileManager.addPage("project-"+temp.name, temp);
+			Vvveb.FileManager.addPage(temp.name, temp);
 			e.preventDefault();
 			
 
@@ -2155,7 +2161,7 @@ Vvveb.Gui = {
 				
 			
 				// name = data['name']="project-"+data["name"];
-					Vvveb.FileManager.loadPage("project-"+name);
+					Vvveb.FileManager.loadPage(name);
 					Vvveb.FileManager.scrollBottom();
 					newPageModal.modal("hide");
 			}, this.action);

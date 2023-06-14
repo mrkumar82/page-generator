@@ -146,8 +146,8 @@ const editor=async ()=>{
              
                 const title = temp.charAt(0).toUpperCase() + temp.slice(1);
            
-                let filetemp= url;
-                files += `{name: '${title}', file: '${filetemp}', title: '${title}', url: '${url}', folder: '${path.dirname(pathInfo.dir)}'},`;
+                let filetemp= path.basename(url);
+                files += `{name: '${title}', file: '${url}', title: '${filetemp}', url: '${url}', folder: '${temp}'},`;
               });
 
               files=files.replaceAll("\\", "/")
