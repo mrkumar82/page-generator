@@ -23,7 +23,9 @@ body {
 
 #logo {
   margin-left: 0.5rem;
-  margin-top: 0.15rem; }
+  margin-top: 0.15rem; 
+  max-width: 150px;
+  margin-top: 12px;}
   html[data-bs-theme="dark"] #logo {
     filter: brightness(3); }
 
