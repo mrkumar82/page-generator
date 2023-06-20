@@ -1839,7 +1839,7 @@ Unzip the latest ckeditor release zip from https://github.com/ckeditor/ckeditor4
 
 			$(function () {
 
-				let firstPage = Object.keys(pages)[0];
+				let firstPage = Object.keys(pages)[4];
 				Vvveb.Builder.init(pages[firstPage]["url"], function () {
 					//load code after page is loaded here
 				});
@@ -1849,7 +1849,14 @@ Unzip the latest ckeditor release zip from https://github.com/ckeditor/ckeditor4
 				Vvveb.SectionList.init();
 				Vvveb.Breadcrumb.init();
 
-				Vvveb.FileManager.addPages([{ name: 'Product', file: 'demo/product/index.html', title: 'index.html', url: 'demo/product/index.html', folder: 'product' }, { name: 'Pricing', file: 'demo/pricing/index.html', title: 'index.html', url: 'demo/pricing/index.html', folder: 'pricing' }, { name: 'Offcanvas', file: 'demo/offcanvas/index.html', title: 'index.html', url: 'demo/offcanvas/index.html', folder: 'offcanvas' }, { name: 'Narrow-jumbotron', file: 'demo/narrow-jumbotron/index.html', title: 'index.html', url: 'demo/narrow-jumbotron/index.html', folder: 'narrow-jumbotron' }, { name: 'Carousel', file: 'demo/carousel/index.html', title: 'index.html', url: 'demo/carousel/index.html', folder: 'carousel' }, { name: 'Blog', file: 'demo/blog/index.html', title: 'index.html', url: 'demo/blog/index.html', folder: 'blog' }, { name: 'Album', file: 'demo/album/index.html', title: 'index.html', url: 'demo/album/index.html', folder: 'album' }, { name: 'My-pages', file: 'project/my-pages/my-page.html', title: 'my-page.html', url: 'project/my-pages/my-page.html', folder: 'my-pages' },]);
+				Vvveb.FileManager.addPages([
+					{ name: 'Product', file: 'demo/product/index.html', title: 'index.html', url: 'demo/product/index.html', folder: 'product' },
+					{ name: 'Pricing', file: 'demo/pricing/index.html', title: 'index.html', url: 'demo/pricing/index.html', folder: 'pricing' },
+					{ name: 'Offcanvas', file: 'demo/offcanvas/index.html', title: 'index.html', url: 'demo/offcanvas/index.html', folder: 'offcanvas' },
+					{ name: 'Narrow-jumbotron', file: 'demo/narrow-jumbotron/index.html', title: 'index.html', url: 'demo/narrow-jumbotron/index.html', folder: 'narrow-jumbotron' },
+					{ name: 'Carousel', file: 'demo/carousel/index.html', title: 'index.html', url: 'demo/carousel/index.html', folder: 'carousel' },
+					{ name: 'Blog', file: 'demo/blog/index.html', title: 'index.html', url: 'demo/blog/index.html', folder: 'blog' },
+					{ name: 'Album', file: 'demo/album/index.html', title: 'index.html', url: 'demo/album/index.html', folder: 'album' },]);
 				Vvveb.FileManager.loadPage(pages[firstPage]["name"]);
 				Vvveb.Breadcrumb.init();
 
