@@ -17,6 +17,9 @@ const save= async (req, res) => {
         case "delete":
           deleteFile(req, res);
           break;
+        case "clone":
+            cloneFile(req, res);
+            break;
         default:
           res.send({ message: "not a valid action" });
       }
@@ -106,6 +109,25 @@ function sanitizeFileName(file, folder) {
 
     return file;
   }
+
+  const cloneFile = async (req, res) => {
+    try {
+        let file = req.body.file;
+        let newfile = req.body.newfile;
+        let oldPath = sanitizeFileName(file)
+        let newPath = sanitizeFileName(newfile)
+        fs.copyFile(oldPath, newPath, (err) => {
+            if (err) {
+                res.send({ error: err.message });
+            } else {
+                editor()
+                res.send({ message: "file copied" });
+            }
+        });
+    } catch (error) {
+        res.send({ error: err.message });
+    }
+};
 
 
 

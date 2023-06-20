@@ -2832,7 +2832,7 @@ Vvveb.FileManager = {
 
 		$(this.tree).on("click", ".duplicate", function (e) {
 			let element = $(e.target).closest("li");
-			Vvveb.FileManager.renamePage(element, e, true);
+			Vvveb.FileManager.clonePage(element, e, true);
 			e.preventDefault();
 			return false;
 		});
@@ -2914,13 +2914,59 @@ Vvveb.FileManager = {
 
 					displayToast(bg, data.message ?? data);
 					let baseName = newfile.replace('.html', '');
-					let newName = friendlyName(newfile.replace(/.*[\/\\]+/, '')).replace('.html', '');
+					let newName = friendlyName(newfile.replace(/.*[\/\\]+/, ''));
 
 					if (duplicate) {
 						let data = _self.pages[page.page];
 						data["file"] = newfile;
 						data["title"] = newName;
-						Vvveb.FileManager.addPage(baseName, data);
+						Vvveb.FileManager.addPage(newfile, data);
+					} else {
+					_self.pages[page.page]["file"] = newfile;
+						_self.pages[page.page]["title"] = newName;
+						$("> label span", element).html(newName);
+					page.url = page.url.replace(page.file, newfile);
+					page.file = newfile;
+					_self.pages[page.page]["url"] = page.url;
+					_self.pages[page.page]["file"] = page.file;
+					}
+					
+				},
+				error: function (data) {
+					displayToast("bg-danger", data.responseText);
+				}
+			});
+
+			
+		}
+	},
+
+	clonePage: function(element, e, duplicate = false) {
+		let page = element[0].dataset;
+		let newfile = prompt(`Enter new file name for "${page.file}"`, page.file);
+		let _self = this;
+		if (newfile) {
+			$.ajax({
+				type: "POST",
+				url: cloneUrl,//set your server side save script url
+				data: {file:page.file, newfile:newfile, duplicate},
+				success: function (data, text) {
+					let bg = "bg-success";
+					if (data.success) {		
+						$("#top-panel .save-btn").attr("disabled", "true");
+					} else {
+						//bg = "bg-danger";
+					}
+
+					displayToast(bg, data.message ?? data);
+					let baseName = newfile.replace('.html', '');
+					let newName = friendlyName(newfile.replace(/.*[\/\\]+/, ''));
+
+					if (duplicate) {
+						let data = _self.pages[page.page];
+						data["file"] = newfile;
+						data["title"] = newName;
+						Vvveb.FileManager.addPage(newfile, data);
 					} else {
 					_self.pages[page.page]["file"] = newfile;
 						_self.pages[page.page]["title"] = newName;

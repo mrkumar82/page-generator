@@ -1670,6 +1670,7 @@ Unzip the latest ckeditor release zip from https://github.com/ckeditor/ckeditor4
 <script>
 let renameUrl = '/save?action=rename';
 let deleteUrl = '/save?action=delete';	
+let cloneUrl = '/save?action=clone';
 
 let pages = 
 	[
@@ -1713,7 +1714,7 @@ $(function() {
 	Vvveb.SectionList.init();
 	Vvveb.Breadcrumb.init();
 	
-	Vvveb.FileManager.addPages([{name: 'Product', file: 'demo/product/index.html', title: 'index.html', url: 'demo/product/index.html', folder: 'product'},{name: 'Pricing', file: 'demo/pricing/index.html', title: 'index.html', url: 'demo/pricing/index.html', folder: 'pricing'},{name: 'Offcanvas', file: 'demo/offcanvas/index.html', title: 'index.html', url: 'demo/offcanvas/index.html', folder: 'offcanvas'},{name: 'Narrow-jumbotron', file: 'demo/narrow-jumbotron/index.html', title: 'index.html', url: 'demo/narrow-jumbotron/index.html', folder: 'narrow-jumbotron'},{name: 'Carousel', file: 'demo/carousel/index.html', title: 'index.html', url: 'demo/carousel/index.html', folder: 'carousel'},{name: 'Blog', file: 'demo/blog/index.html', title: 'index.html', url: 'demo/blog/index.html', folder: 'blog'},{name: 'Album', file: 'demo/album/index.html', title: 'index.html', url: 'demo/album/index.html', folder: 'album'},]);
+	Vvveb.FileManager.addPages([{name: 'Product', file: 'demo/product/index.html', title: 'index.html', url: 'demo/product/index.html', folder: 'product'},{name: 'Pricing', file: 'demo/pricing/index.html', title: 'index.html', url: 'demo/pricing/index.html', folder: 'pricing'},{name: 'Offcanvas', file: 'demo/offcanvas/index.html', title: 'index.html', url: 'demo/offcanvas/index.html', folder: 'offcanvas'},{name: 'Narrow-jumbotron', file: 'demo/narrow-jumbotron/index.html', title: 'index.html', url: 'demo/narrow-jumbotron/index.html', folder: 'narrow-jumbotron'},{name: 'Carousel', file: 'demo/carousel/index.html', title: 'index.html', url: 'demo/carousel/index.html', folder: 'carousel'},{name: 'Blog', file: 'demo/blog/index.html', title: 'index.html', url: 'demo/blog/index.html', folder: 'blog'},{name: 'Album', file: 'demo/album/index.html', title: 'index.html', url: 'demo/album/index.html', folder: 'album'},{name: 'Two', file: 'project/two/one.html', title: 'one.html', url: 'project/two/one.html', folder: 'two'},{name: 'My-pages', file: 'project/my-pages/my-page.html', title: 'my-page.html', url: 'project/my-pages/my-page.html', folder: 'my-pages'},{name: 'Epsilon', file: 'project/Epsilon/index.html', title: 'index.html', url: 'project/Epsilon/index.html', folder: 'Epsilon'},]);
 	Vvveb.FileManager.loadPage(pages[firstPage]["name"]);
 	Vvveb.Breadcrumb.init();
 
