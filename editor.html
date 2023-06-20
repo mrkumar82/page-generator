@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="favicon.ico">
 	<base href="">
-	<title>VvvebJs</title>
+	<title>Low code app</title>
 
 	<link href="css/editor.css" rel="stylesheet">
 </head>
@@ -19,7 +19,7 @@
 
 	<div id="vvveb-builder">
 		<div id="top-panel">
-			<img src="img/logo.svg" alt="Vvveb" class="float-start" id="logo">
+			<img src="img/logo.svg" alt="Low code app" class="float-start" id="logo">
 
 			<div class="btn-group float-start" role="group">
 				<button class="btn btn-light" title="Toggle file manager" id="toggle-file-manager-btn"
@@ -164,35 +164,29 @@
 							<a class="nav-link active" id="sections-tab" data-bs-toggle="tab" href="#sections"
 								role="tab" aria-controls="sections" aria-selected="true" title="Sections">
 								<i class="la la-stream"></i>
-								<!-- img src="../../../js/vvvebjs/icons/list_group.svg" height="23" -->
-								<!-- div><small>Sections</small></div -->
+
 							</a>
 						</li>
 						<li class="nav-item component-tab">
 							<a class="nav-link" id="components-tab" data-bs-toggle="tab" href="#components-tabs"
 								role="tab" aria-controls="components" aria-selected="false" title="Components">
 								<i class="la la-box"></i>
-								<!-- img src="../../../js/vvvebjs/icons/product.svg" height="23" -->
-								<!-- div><small>Components</small></div -->
+
 							</a>
 						</li>
-						<!-- li class="nav-item sections-tab">
-								<a class="nav-link" id="sections-tab" data-bs-toggle="tab" href="#sections" role="tab" aria-controls="sections" aria-selected="false" title="Sections"><img src="../../../js/vvvebjs/icons/list_group.svg" width="24" height="23"> <div><small>Sections</small></div></a>
-							  </li -->
+
 						<li class="nav-item component-properties-tab" style="display:none">
 							<a class="nav-link" id="properties-tab" data-bs-toggle="tab" href="#properties" role="tab"
 								aria-controls="properties" aria-selected="false" title="Properties">
 								<i class="la la-cog"></i>
-								<!-- img src="../../../js/vvvebjs/icons/filters.svg" height="23"-->
-								<!-- div><small>Properties</small></div -->
+
 							</a>
 						</li>
 						<li class="nav-item component-configuration-tab">
 							<a class="nav-link" id="configuration-tab" data-bs-toggle="tab" href="#configuration"
 								role="tab" aria-controls="configuration" aria-selected="false" title="Configuration">
 								<i class="la la-tools"></i>
-								<!-- img src="../../../js/vvvebjs/icons/filters.svg" height="23"-->
-								<!-- div><small>Properties</small></div -->
+
 							</a>
 						</li>
 					</ul>
@@ -1591,7 +1585,7 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<p class="modal-title text-primary"><i class="la la-lg la-comment"></i> VvvebJs</p>
+						<p class="modal-title text-primary"><i class="la la-lg la-comment"></i> Low code app</p>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 							<!-- span aria-hidden="true"><small><i class="la la-times"></i></small></span -->
 						</button>
@@ -1648,8 +1642,8 @@
 								<label class="col-sm-3 col-form-label">Page name</label>
 								<div class="col-sm-9 input">
 									<div>
-										<input name="title" type="text" value="My page" class="form-control"
-											placeholder="My page" required>
+										<input name="title" type="text" value="Page title" class="form-control"
+											placeholder="Page title" required>
 									</div>
 								</div>
 							</div>
@@ -1658,8 +1652,8 @@
 								<label class="col-sm-3 col-form-label">File name</label>
 								<div class="col-sm-9 input">
 									<div>
-										<input name="file" type="text" value="my-page.html" class="form-control"
-											placeholder="my-page.html" required>
+										<input name="file" type="text" value="index.html" class="form-control"
+											placeholder="index.html" required>
 									</div>
 								</div>
 							</div>
@@ -1679,8 +1673,8 @@
 								<label class="col-sm-3 col-form-label">Save to folder</label>
 								<div class="col-sm-9 input">
 									<div>
-										<input name="folder" type="text" value="my-pages" class="form-control"
-											placeholder="/" required>
+										<input name="folder" type="text" value="project-name" class="form-control"
+											placeholder="Project Name" required>
 									</div>
 								</div>
 							</div>
@@ -1855,7 +1849,7 @@ Unzip the latest ckeditor release zip from https://github.com/ckeditor/ckeditor4
 				Vvveb.SectionList.init();
 				Vvveb.Breadcrumb.init();
 
-				Vvveb.FileManager.addPages([{ name: 'Product', file: 'demo/product/index.html', title: 'index.html', url: 'demo/product/index.html', folder: 'product' }, { name: 'Pricing', file: 'demo/pricing/index.html', title: 'index.html', url: 'demo/pricing/index.html', folder: 'pricing' }, { name: 'Offcanvas', file: 'demo/offcanvas/index.html', title: 'index.html', url: 'demo/offcanvas/index.html', folder: 'offcanvas' }, { name: 'Narrow-jumbotron', file: 'demo/narrow-jumbotron/index.html', title: 'index.html', url: 'demo/narrow-jumbotron/index.html', folder: 'narrow-jumbotron' }, { name: 'Carousel', file: 'demo/carousel/index.html', title: 'index.html', url: 'demo/carousel/index.html', folder: 'carousel' }, { name: 'Blog', file: 'demo/blog/index.html', title: 'index.html', url: 'demo/blog/index.html', folder: 'blog' }, { name: 'Album', file: 'demo/album/index.html', title: 'index.html', url: 'demo/album/index.html', folder: 'album' }, { name: 'Two', file: 'project/two/one.html', title: 'one.html', url: 'project/two/one.html', folder: 'two' }, { name: 'My-pages', file: 'project/my-pages/my-page.html', title: 'my-page.html', url: 'project/my-pages/my-page.html', folder: 'my-pages' },]);
+				Vvveb.FileManager.addPages([{ name: 'Product', file: 'demo/product/index.html', title: 'index.html', url: 'demo/product/index.html', folder: 'product' }, { name: 'Pricing', file: 'demo/pricing/index.html', title: 'index.html', url: 'demo/pricing/index.html', folder: 'pricing' }, { name: 'Offcanvas', file: 'demo/offcanvas/index.html', title: 'index.html', url: 'demo/offcanvas/index.html', folder: 'offcanvas' }, { name: 'Narrow-jumbotron', file: 'demo/narrow-jumbotron/index.html', title: 'index.html', url: 'demo/narrow-jumbotron/index.html', folder: 'narrow-jumbotron' }, { name: 'Carousel', file: 'demo/carousel/index.html', title: 'index.html', url: 'demo/carousel/index.html', folder: 'carousel' }, { name: 'Blog', file: 'demo/blog/index.html', title: 'index.html', url: 'demo/blog/index.html', folder: 'blog' }, { name: 'Album', file: 'demo/album/index.html', title: 'index.html', url: 'demo/album/index.html', folder: 'album' }, { name: 'My-pages', file: 'project/my-pages/my-page.html', title: 'my-page.html', url: 'project/my-pages/my-page.html', folder: 'my-pages' },]);
 				Vvveb.FileManager.loadPage(pages[firstPage]["name"]);
 				Vvveb.Breadcrumb.init();
 

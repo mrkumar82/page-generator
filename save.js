@@ -45,7 +45,7 @@ const saveFile = async (req, res) => {
         }
         let dirpath = path.dirname(cpyPath);
     
-        //console.log(dirpath)
+        console.log("dirpath", dirpath)
         if (!fs.existsSync(dirpath)) {
             fs.mkdirSync(dirpath, { recursive: true, mode: "777" });
         }
